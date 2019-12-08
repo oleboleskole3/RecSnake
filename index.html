@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>What version of snake?</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="">
+    <p class="grow">Which version of snake do you want to play?</p>
+    <div class="container shrink">
+        <a href="Hiscore">
+            <div class="btn">With hiscore</div>
+        </a>
+    </div>
+    <div class="container shrink">
+        <a href="2Player">
+            <div class="btn">2 player</div>
+        </a>
+    </div>
+    <script>
+        window.onload = function() {
+            let x = document.getElementsByClassName("shrink")
+            let y = x.length
+            for (i = 0;i<y;i++){
+                x[0].classList = "container"
+            }
+            x = document.getElementsByClassName("grow")
+            y = x.length
+            for (i = 0;i<y;i++){
+                x[0].classList = ""
+            }
+        }
+    </script>
+</body>
+</html>
