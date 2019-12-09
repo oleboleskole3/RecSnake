@@ -9,7 +9,7 @@ body {
 }
 p {
     font-size: 2rem;
-    transition: all .5s ease-out;
+    transition: all .5s cubic-bezier(0.68, 0.02, 0.43, 2.17);
 }
 A {text-decoration: none;}
 .container {
