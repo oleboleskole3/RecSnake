@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Select options</title>
+    <script>
+        function done() {
+            let player1 = document.getElementById("player1")
+            let p1sel = player1.options[player1.selectedIndex].value
+
+            let player2 = document.getElementById("player2")
+            let p2sel = player2.options[player2.selectedIndex].value
+
+            let player3 = document.getElementById("player3")
+            let p3sel = player3.options[player3.selectedIndex].value
+
+            let player4 = document.getElementById("player4")
+            let p4sel = player1.options[player4.selectedIndex].value
+
+            let player5 = document.getElementById("player5")
+            let p5sel = player2.options[player5.selectedIndex].value
+
+            let player6 = document.getElementById("player6")
+            let p6sel = player3.options[player6.selectedIndex].value
+
+            let AmountOfFood = document.getElementById("AmountOfFood").value
+
+            let url = "play.html?p0=" + p1sel + "&p1=" + p2sel + "&p2=" + p3sel + "&p3=" + p4sel + "&p4=" + p5sel + "&p5=" + p6sel + "&fruit=" + AmountOfFood
+            window.location.assign(url)
+        }
+    </script>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            height: 80vh;
+        }
+        
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: min(3vh, 3vw);
+            transition: all .6s linear;
+        }
+        
+        select {
+            background: linear-gradient(#5eafff, #1e90ff);
+            border-color: gray;
+            border-width: 2px;
+            border-radius: 3px;
+            margin: 10px;
+            width: 100px;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            justify-content: center;
+            width: fit-content;
+            transition: all ease 1s;
+            left: 50%;
+            transform: translate(-25%, 0px);
+        }
+
+        .container p {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            margin: 5px;
+            width: 200px;
+            text-align: right;
+        }
+
+        .container input {
+            background: linear-gradient(#ed6464, #bd4646);
+            border-color: gray;
+            border-width: 1px;
+            margin: 20px;
+        }
+        
+        .div {
+            position: absolute;
+            background: transparent;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .grow {
+            transform: scale(10, 10);
+        }
+        
+        .grow .div {
+            background: white;
+        }
+        
+        .info {
+            --background: #808080;
+            --color: #000000;
+            position: absolute;
+            animation: 10s linear fade;
+            top: 10px;
+            width: 300px;
+            padding: 15px;
+            text-align: center;
+            font-size: x-large;
+            /*pointer-events: none;*/
+        }
+
+        .info div {
+            position: absolute;
+            --size: 20px;
+            top: 10px;
+            right: 10px;
+            width: var(--size);
+            height: var(--size);
+            --background: black;
+            --color: white;
+            font-size: calc(var(--size) - 1px);
+            cursor: pointer;
+            animation: 10s linear fade;
+        }
+        
+        @keyframes fade {
+            0% {
+                background: transparent;
+                color: transparent;
+            }
+            30% {
+                background: var(--background);
+                color: var(--color);
+            }
+            85% {
+                background: var(--background);
+                color: var(--color);
+            }
+            100% {
+                background: transparent;
+                color: transparent;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div"></div>
+    <div id="gamepads"></div>
+    <p style="background-color: #80808048; padding: 8px;border-radius: 10px;">Please configure your options</p>
+    <div class="container">
+        <p>Player 1:</p>
+        <select id="player1">
+            <option class="option1">None</option>
+            <option class="option2">Arrows</option>
+            <option class="option3" selected>Wasd</option>
+        </select>
+    </div>
+    <div class="container">
+        <p>Player 2:</p>
+        <select id="player2">
+            <option class="option1">None</option>
+            <option class="option2" selected>Arrows</option>
+            <option class="option3">Wasd</option>
+        </select>
+    </div>
+    <div class="container" style="visibility: hidden;">
+        <p>Player 3:</p>
+        <select id="player3">
+            <option class="option1" selected>None</option>
+            <option class="option2">Arrows</option>
+            <option class="option3">Wasd</option>
+        </select>
+    </div>
+    <div class="container" style="visibility: hidden;">
+        <p>Player 4:</p>
+        <select id="player4">
+            <option class="option1" selected>None</option>
+            <option class="option2">Arrows</option>
+            <option class="option3">Wasd</option>
+        </select>
+    </div>
+    <div class="container" style="visibility: hidden;">
+        <p>Player 5:</p>
+        <select id="player5">
+            <option class="option1" selected>None</option>
+            <option class="option2">Arrows</option>
+            <option class="option3">Wasd</option>
+        </select>
+    </div>
+    <div class="container" style="visibility: hidden;">
+        <p>Player 6:</p>
+        <select id="player6">
+            <option class="option1" selected>None</option>
+            <option class="option2">Arrows</option>
+            <option class="option3">Wasd</option>
+        </select>
+    </div>
+    <div class="container">
+        <p style="transform: translate(-5px, 0px);">Amount of food:</p>
+        <input type="number" id="AmountOfFood" value=2>
+    </div>
+    <button onclick="setTimeout(done,600);document.body.classList='grow'">Start</button>
+    <script>
+        gamediv = document.getElementById("gamepads")
+
+        window.addEventListener("gamepadconnected", e => {
+            console.log(e.gamepad)
+            let x = document.createElement("div")
+            x.classList = "info"
+            x.innerText = "Gamepad " + (e.gamepad.index + 1) + " connected\nId: " + e.gamepad.id
+            document.body.appendChild(x)
+            x.Timeout = setTimeout(function() {
+                x.remove()
+            }, 10000)
+            let y = document.createElement("div")
+            y.innerText = "X"
+            y.onclick = function(){
+                clearTimeout(x.Timeout)
+                x.remove()
+            }
+            x.appendChild(y)
+            let selects = document.getElementsByTagName("select")
+            for (i = 0; i < selects.length; i++) {
+                let option = document.createElement("option")
+                option.className = "gamepad" + (e.gamepad.index + 1)
+                option.innerText = "Gamepad" + (e.gamepad.index + 1)
+                selects[i].appendChild(option)
+                option = document.createElement("option")
+                option.className = "gamepad" + (e.gamepad.index + 1)
+                option.innerText = "Gamepad" + (e.gamepad.index + 1) + "Buttons"
+                selects[i].appendChild(option)
+                console.log(selects[i])
+            }
+            document.getElementById("player"+(e.gamepad.index+3)).parentNode.style.visibility = ""
+        })
+
+        window.addEventListener("gamepaddisconnected", e => {
+            console.log(e.gamepad)
+            let x = document.createElement("div")
+            x.classList = "info"
+            x.innerText = "Gamepad " + (e.gamepad.index + 1) + " disconnected\nId: " + e.gamepad.id
+            document.body.appendChild(x)
+            x.Timeout = setTimeout(function() {
+                x.remove()
+            }, 10000)
+            let y = document.createElement("div")
+            y.innerText = "X"
+            y.onclick = function(){
+                clearTimeout(x.Timeout)
+                x.remove()
+            }
+            x.appendChild(y)
+            let options = document.getElementsByClassName("gamepad" + (e.gamepad.index + 1))
+            for (i = options.length - 1; i >= 0; i--) {
+                options[i].remove()
+            }
+        })
+
+        /*setInterval(a123 => {
+            let buttons = navigator.getGamepads()[0].buttons
+            let done = []
+            buttons.forEach(button => {
+                done.push(button.pressed)
+            });
+            console.log(done)
+        }, 250)*/
+    </script>
+</body>
+
+</html>

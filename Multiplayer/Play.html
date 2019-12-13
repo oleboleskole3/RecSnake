@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Recursive snake</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.js"></script>
+    <script src="main.js"></script>
+    <script src="body.js"></script>
+    <script src="food.js"></script>
+    <link rel="stylesheet" href="main.css">
+    <script>
+    window.params = function(){
+        var params = {};
+        var param_array = window.location.href.split('?')[1].split('&');
+        for(var i in param_array){
+            x = param_array[i].split('=');
+            params[x[0]] = x[1];
+        }
+        return params;
+    }();
+    </script>
+    <script>
+        window.onload = function() {
+            x = document.getElementsByClassName("grow")
+            y = x.length
+            for (i = 0;i<y;i++){
+                x[0].classList = ""
+            }
+        }
+    </script>
+</head>
+<body style="padding: 0px; margin: 0px;" class="grow">
+    <div class="div"></div>
+    <div id="X" onclick="window.location.assign('index.html')">X</div>
+</body>
+</html>
