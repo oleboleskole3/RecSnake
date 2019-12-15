@@ -75,17 +75,17 @@ function draw() {
             }
             fruits[j].show();
         }
+        if (players[i].child) {
+            if (players[i].child.death(players[i])) {
+                players[i] = new body(floor(tilesX / 5) * i, 0, colors[i]);
+                players[i].grow();
+                players[i].grow();
+                players[i].grow();
+            }
+        }
         for (j = 0; j < players.length; j++) {
             if (i == j) continue;
             if (!players[j]) continue;
-            if (players[i].child) {
-                if (players[i].child.death(players[i])) {
-                    players[i] = new body(floor(tilesX / 5) * i, 0, colors[i]);
-                    players[i].grow();
-                    players[i].grow();
-                    players[i].grow();
-                }
-            }
             if (players[j].death(players[i])) {
                 players[i] = new body(floor(tilesX / 5) * i, 0, colors[i]);
                 players[i].grow();
