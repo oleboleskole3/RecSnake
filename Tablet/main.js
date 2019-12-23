@@ -114,6 +114,7 @@ function touchMoved() {
             }
         }
     }
+    return false
 }
 
 function touchEnded() {
